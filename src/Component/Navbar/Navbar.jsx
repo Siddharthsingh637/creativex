@@ -1,38 +1,51 @@
-import React from 'react'
-import { LogIn } from "lucide-react";
+import React from 'react';
+import { LogIn, UserPlus } from "lucide-react";
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   return (
     <header className="w-full bg-gray-50 shadow-sm">
-      <div className="max-w-8xl mx-auto px-15 py-3 flex justify-between items-center">
+      <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
         
         {/* Logo */}
-        <div className="text-2xl font-bold text-blue-600">MyLogo</div>
+        <Link to="/" className="text-2xl font-bold text-blue-600">
+          Creativex
+        </Link>
 
-        {/* Menu */}
-        <nav className="flex items-center gap-10">
-          <a
-            href="#home"
-            className="text-gray-700 hover:text-blue-600 transition"
+        {/* Navigation Links */}
+        <nav className="flex items-center gap-6">
+          <Link
+            to="/"
+            className="text-gray-700 hover:text-blue-600 transition font-medium"
           >
             Home
-          </a>
-          <a
-            href="#about"
-            className="text-gray-700 hover:text-blue-600 transition"
+          </Link>
+          <Link
+            to="/about"
+            className="text-gray-700 hover:text-blue-600 transition font-medium"
           >
             About
-          </a>
+          </Link>
 
           {/* Login Button */}
-          <button className="ml-4 flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">
-            <LogIn size={18} />
-            Login
-          </button>
+          <Link to="/login" aria-label="Login">
+            <button className="flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">
+              <LogIn size={18} />
+              Login
+            </button>
+          </Link>
+
+          {/* Signup Button */}
+          <Link to="/signup" aria-label="Sign Up">
+            <button className="flex items-center gap-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition">
+              <UserPlus size={18} />
+              Getting Started
+            </button>
+          </Link>
         </nav>
       </div>
     </header>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;
